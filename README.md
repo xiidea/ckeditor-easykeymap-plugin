@@ -19,8 +19,17 @@ config.easykeymaps = {
 		4456530 : String.fromCharCode(174),   //ALT + R
 		4456515 : String.fromCharCode(169)   //ALT + C
 	};
-
+```
+OR
+````js
 config.easykeymaps[CKEDITOR.ALT + 81] = String.fromCharCode(190);    //ALT + Q
+```
+OR
+````js
+CKEDITOR.config.easykeymaps = {
+        4456530 : String.fromCharCode(174),   //ALT + R
+        4456515 : String.fromCharCode(169)   //ALT + C
+   };
 ```
 
 * You can also define shortcut action like this   
