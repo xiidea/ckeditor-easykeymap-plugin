@@ -8,6 +8,7 @@
 
 CKEDITOR.plugins.add('easykeymap',
     {
+        requires : ['wysiwygarea'],
         init: function (editor) {
 
             var keyMaps = CKEDITOR.tools.extend({}, editor.config.easykeymaps || {}, true);
