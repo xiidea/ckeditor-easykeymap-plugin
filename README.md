@@ -5,13 +5,14 @@ CKEditor plugin for custom keymap
 Installation
 -------------
 
- 1. Extract the contents of the file into the "plugins" folder of CKEditor.
- 2. In the CKEditor configuration file (config.js) add the following code:
+* Extract the **easykeymap** folder into the "plugins" folder of CKEditor.
+* In the CKEditor configuration file (config.js) add the following code:
 
 ````js
 config.extraPlugins = 'easykeymap';
 ````
- 3. You can now define your key map through following config parameter
+
+* You can now define your key map through following config parameter
 
 ````js
 config.easykeymaps = {
@@ -20,4 +21,12 @@ config.easykeymaps = {
 	};
 
 config.easykeymaps[CKEDITOR.ALT + 81] = String.fromCharCode(190);    //ALT + Q
+```
+
+* You can also define shortcut action like this   
+
+````js
+	config.easykeymaps[CKEDITOR.ALT + 83] = function(editor){
+		alert("You have entered 'ALT + S' In editor: " + editor.name);
+	};
 ```

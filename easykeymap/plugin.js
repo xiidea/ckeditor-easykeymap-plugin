@@ -26,11 +26,16 @@ CKEDITOR.plugins.add('easykeymap',
             }
 
             editor.on( 'key', function( event ) {
-                console.log(event.data.keyCode);
-                var char;
-                if ((char = getMappedCharacter(event.data.keyCode)) && !isRegisteredKeystroke(event.data.keyCode)) {
-                    editor.insertText(char);
+                var mappedCode = getMappedCharacter(event.data.keyCode);
+                if (mappedCode !== false && !isRegisteredKeystroke(event.data.keyCode)) {
+
                     event.cancel();
+
+                    if(typeof mappedCode == 'function') {
+                        return mappedCode.call(editor, editor);
+                    }
+
+                    editor.insertText(mappedCode);
                 }
             } );
         }
