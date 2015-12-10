@@ -8,6 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+      <script src="//cdn.ckeditor.com/4.5.6/basic/ckeditor.js"></script>
   </head>
   <body>
     <section class="page-header">
@@ -41,9 +42,18 @@
 <div class="highlight highlight-source-js"><pre><span class="pl-smi">config</span>.<span class="pl-smi">easykeymaps</span> <span class="pl-k">=</span> {
         <span class="pl-c1">4456530</span> <span class="pl-k">:</span> <span class="pl-smi">String</span>.<span class="pl-c1">fromCharCode</span>(<span class="pl-c1">174</span>),   <span class="pl-c">//ALT + R</span>
         <span class="pl-c1">4456515</span> <span class="pl-k">:</span> <span class="pl-smi">String</span>.<span class="pl-c1">fromCharCode</span>(<span class="pl-c1">169</span>)   <span class="pl-c">//ALT + C</span>
-    };
+    };</pre></div>
 
-<span class="pl-smi">config</span>.<span class="pl-smi">easykeymaps</span>[<span class="pl-smi">CKEDITOR</span>.<span class="pl-c1">ALT</span> <span class="pl-k">+</span> <span class="pl-c1">81</span>] <span class="pl-k">=</span> <span class="pl-smi">String</span>.<span class="pl-c1">fromCharCode</span>(<span class="pl-c1">190</span>);    <span class="pl-c">//ALT + Q</span></pre></div>
+<p>OR</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">config</span>.<span class="pl-smi">easykeymaps</span>[<span class="pl-smi">CKEDITOR</span>.<span class="pl-c1">ALT</span> <span class="pl-k">+</span> <span class="pl-c1">81</span>] <span class="pl-k">=</span> <span class="pl-smi">String</span>.<span class="pl-c1">fromCharCode</span>(<span class="pl-c1">190</span>);    <span class="pl-c">//ALT + Q</span></pre></div>
+
+<p>OR</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">CKEDITOR</span>.<span class="pl-smi">config</span>.<span class="pl-smi">easykeymaps</span> <span class="pl-k">=</span> {
+        <span class="pl-c1">4456530</span> <span class="pl-k">:</span> <span class="pl-smi">String</span>.<span class="pl-c1">fromCharCode</span>(<span class="pl-c1">174</span>),   <span class="pl-c">//ALT + R</span>
+        <span class="pl-c1">4456515</span> <span class="pl-k">:</span> <span class="pl-smi">String</span>.<span class="pl-c1">fromCharCode</span>(<span class="pl-c1">169</span>)   <span class="pl-c">//ALT + C</span>
+   };</pre></div>
 
 <ul>
 <li>You can also define shortcut action like this<br>
@@ -53,6 +63,25 @@
 <div class="highlight highlight-source-js"><pre>    <span class="pl-smi">config</span>.<span class="pl-smi">easykeymaps</span>[<span class="pl-smi">CKEDITOR</span>.<span class="pl-c1">ALT</span> <span class="pl-k">+</span> <span class="pl-c1">83</span>] <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">editor</span>){
         <span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>You have entered 'ALT + S' In editor: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">editor</span>.<span class="pl-c1">name</span>);
     };</pre></div>
+
+        <div>
+            <h2 id="ck-editor-easykeymap-demo">CKEditor Easy Key Map Demo</h2>
+            <div>
+                <div>
+                    <div id="editor">
+                        <h1>Easy Keymap demo! <br/>
+                            I'm an instance of <a href="http://ckeditor.com">CKEditor</a>.
+                        </h1>
+                        <p>Try to press <br/>
+                            ALT + R or <br/>
+                            ALT + C or <br/>
+                            ALT + S<br/>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/xiidea/ckeditor-easykeymap-plugin">Ckeditor easykeymap plugin</a> is maintained by <a href="https://github.com/xiidea">xiidea</a>.</span>
@@ -64,4 +93,22 @@
 
   
   </body>
+  <script>
+
+      CKEDITOR.plugins.addExternal( 'easykeymap', 'https://cdn.rawgit.com/xiidea/ckeditor-easykeymap-plugin/master/easykeymap/', 'plugin.js' );
+      CKEDITOR.config.toolbarGroups = [];
+
+      CKEDITOR.config.easykeymaps = {
+          4456530 : String.fromCharCode(174),   //ALT + R
+          4456515 : String.fromCharCode(169)   //ALT + C
+      };
+
+      CKEDITOR.config.easykeymaps[CKEDITOR.ALT + 83] = function(editor){
+          alert("You have entered 'ALT + S' In editor: " + editor.name);
+      };
+
+      CKEDITOR.replace('editor', {
+          plugins:'easykeymap'
+      });
+  </script>
 </html>
