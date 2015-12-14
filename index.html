@@ -75,7 +75,7 @@
                         <p>Try to press <br/>
                             ALT + R or <br/>
                             ALT + C or <br/>
-                            ALT + S<br/>
+                            CTRL + S<br/>
                         </p>
 
                     </div>
@@ -103,8 +103,8 @@
           4456515 : String.fromCharCode(169)   //ALT + C
       };
 
-      CKEDITOR.config.easykeymaps[CKEDITOR.ALT + 83] = function(editor){
-          alert("You have entered 'ALT + S' In editor: " + editor.name);
+      CKEDITOR.config.easykeymaps[CKEDITOR.CTRL + 83] = function(editor){
+          alert("You have entered 'CTRL + S' In editor: " + editor.name);
       };
 
       CKEDITOR.replace('editor', {
