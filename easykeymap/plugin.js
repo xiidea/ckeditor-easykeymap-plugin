@@ -33,7 +33,7 @@ CKEDITOR.plugins.add('easykeymap',
                     event.cancel();
 
                     if(typeof mappedCode == 'function') {
-                        return mappedCode.call(editor, editor);
+                        return mappedCode.call(editor, editor, event.data.keyCode);
                     }
 
                     editor.insertText(mappedCode);
