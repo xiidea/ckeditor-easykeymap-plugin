@@ -35,7 +35,7 @@ CKEDITOR.config.easykeymaps = {
 * You can also define shortcut action like this   
 
 ````js
-	config.easykeymaps[CKEDITOR.CTRL + 83] = function(editor){
-		alert("You have entered 'CTRL + S' In editor: " + editor.name);
+	config.easykeymaps[CKEDITOR.CTRL + 83] = function(editor, code){
+		alert("You have entered 'CTRL + S' (keyCode: "+ code +") In editor: " + editor.name);
 	};
 ```
