@@ -60,8 +60,8 @@
 </li>
 </ul>
 
-<div class="highlight highlight-source-js"><pre>    <span class="pl-smi">config</span>.<span class="pl-smi">easykeymaps</span>[<span class="pl-smi">CKEDITOR</span>.<span class="pl-c1">CTRL</span> <span class="pl-k">+</span> <span class="pl-c1">83</span>] <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">editor</span>){
-        <span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>You have entered 'CTRL + S' In editor: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">editor</span>.<span class="pl-c1">name</span>);
+<div class="highlight highlight-source-js"><pre>    <span class="pl-smi">config</span>.<span class="pl-smi">easykeymaps</span>[<span class="pl-smi">CKEDITOR</span>.<span class="pl-c1">CTRL</span> <span class="pl-k">+</span> <span class="pl-c1">83</span>] <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">editor, code</span>){
+        <span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>You have entered 'CTRL + S' (keyCode: <span class="pl-pds">"</span> <span class="pl-k">+</span> code <span class="pl-k">+</span> <span class="pl-pds">"</span>) In editor: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">editor</span>.<span class="pl-c1">name</span>);
     };</pre></div>
 
         <div>
@@ -103,8 +103,8 @@
           4456515 : String.fromCharCode(169)   //ALT + C
       };
 
-      CKEDITOR.config.easykeymaps[CKEDITOR.CTRL + 83] = function(editor){
-          alert("You have entered 'CTRL + S' In editor: " + editor.name);
+      CKEDITOR.config.easykeymaps[CKEDITOR.CTRL + 83] = function(editor, code){
+          alert("You have entered 'CTRL + S' (keyCode: "+ code +") In editor: " + editor.name);
       };
 
       CKEDITOR.replace('editor', {
